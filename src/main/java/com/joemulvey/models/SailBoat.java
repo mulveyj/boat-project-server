@@ -1,9 +1,13 @@
 package com.joemulvey.models;
 
+import javax.persistence.*;
 import java.net.URL;
 
+
+@Entity
 public class SailBoat {
 
+    private Long boat_id;
     private URL imgURL;
     private String vesselClass;
     private String vesselName;
@@ -20,6 +24,12 @@ public class SailBoat {
         this.vesselName = vesselName;
         this.builder = builder;
         this.lengthOverAll = lengthOverAll;
+    }
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="boat_id")
+    public Long getBoat_id() {
+        return boat_id;
     }
 
     public void setImgURL(URL imgURL) {
@@ -54,46 +64,57 @@ public class SailBoat {
         this.headsail3 = headsail3;
     }
 
+    @Column(name="imgURL")
     public URL getImgURL() {
         return imgURL;
     }
 
+    @Column(name="vesselClass")
     public String getVesselClass() {
         return vesselClass;
     }
 
+    @Column(name="vesselName")
     public String getVesselName() {
         return vesselName;
     }
 
+    @Column(name="construction")
     public String getConstruction() {
         return construction;
     }
 
+    @Column(name="builder")
     public String getBuilder() {
         return builder;
     }
 
+    @Column(name="lengthOverAll")
     public int getLengthOverAll() {
         return lengthOverAll;
     }
 
+    @Column(name="mainReefs")
     public int getMainReefs() {
         return mainReefs;
     }
 
+    @Column(name="spinnaker")
     public String getSpinnaker() {
         return spinnaker;
     }
 
+    @Column(name="headsail1")
     public String getHeadsail1() {
         return headsail1;
     }
 
+    @Column(name="headsail2")
     public String getHeadsail2() {
         return headsail2;
     }
 
+    @Column(name="headsail3")
     public String getHeadsail3() {
         return headsail3;
     }
