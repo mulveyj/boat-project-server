@@ -1,14 +1,12 @@
 package com.joemulvey.models;
 
 import javax.persistence.*;
-import java.net.URL;
 
-
-@Entity
+@Entity(name = "sailboat")
 public class SailBoat {
 
-    private Long boat_id;
-    private URL imgURL;
+    private Long boatId = null;
+    private String imgURL;
     private String vesselClass;
     private String vesselName;
     private String construction;
@@ -16,23 +14,34 @@ public class SailBoat {
     private int lengthOverAll;
     private int mainReefs;
     private String spinnaker;
-    private String headsail1;
-    private String headsail2;
-    private String headsail3;
+    private String headsailOne;
+    private String headsailTwo;
+    private String headsailThree;
 
-    public SailBoat(String vesselName, String builder, int lengthOverAll) {
-        this.vesselName = vesselName;
-        this.builder = builder;
-        this.lengthOverAll = lengthOverAll;
-    }
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="boat_id")
-    public Long getBoat_id() {
-        return boat_id;
+    public Long getBoatId() {
+        return boatId;
     }
 
-    public void setImgURL(URL imgURL) {
+    public void setBoatId(Long boatId) {
+        this.boatId = boatId;
+    }
+
+    public void setVesselName(String vesselName) {
+        this.vesselName = vesselName;
+    }
+
+    public void setBuilder(String builder) {
+        this.builder = builder;
+    }
+
+    public void setLengthOverAll(int lengthOverAll) {
+        this.lengthOverAll = lengthOverAll;
+    }
+
+    public void setImgURL(String imgURL) {
         this.imgURL = imgURL;
     }
 
@@ -52,29 +61,17 @@ public class SailBoat {
         this.spinnaker = spinnaker;
     }
 
-    public void setHeadsail1(String headsail1) {
-        this.headsail1 = headsail1;
-    }
-
-    public void setHeadsail2(String headsail2) {
-        this.headsail2 = headsail2;
-    }
-
-    public void setHeadsail3(String headsail3) {
-        this.headsail3 = headsail3;
-    }
-
-    @Column(name="imgURL")
-    public URL getImgURL() {
+    @Column(name="img_url")
+    public String getImgURL() {
         return imgURL;
     }
 
-    @Column(name="vesselClass")
+    @Column(name="vessel_class")
     public String getVesselClass() {
         return vesselClass;
     }
 
-    @Column(name="vesselName")
+    @Column(name="vessel_name")
     public String getVesselName() {
         return vesselName;
     }
@@ -89,12 +86,12 @@ public class SailBoat {
         return builder;
     }
 
-    @Column(name="lengthOverAll")
+    @Column(name="length_over_all")
     public int getLengthOverAll() {
         return lengthOverAll;
     }
 
-    @Column(name="mainReefs")
+    @Column(name="main_reefs")
     public int getMainReefs() {
         return mainReefs;
     }
@@ -104,19 +101,30 @@ public class SailBoat {
         return spinnaker;
     }
 
-    @Column(name="headsail1")
-    public String getHeadsail1() {
-        return headsail1;
+    @Column(name="headsail_one")
+    public String getHeadsailOne() {
+        return headsailOne;
     }
 
-    @Column(name="headsail2")
-    public String getHeadsail2() {
-        return headsail2;
+    public void setHeadsailOne(String headsailOne) {
+        this.headsailOne = headsailOne;
     }
 
-    @Column(name="headsail3")
-    public String getHeadsail3() {
-        return headsail3;
+    @Column(name="headsail_two")
+    public String getHeadsailTwo() {
+        return headsailTwo;
     }
 
+    public void setHeadsailTwo(String headsailTwo) {
+        this.headsailTwo = headsailTwo;
+    }
+
+    @Column(name="headsail_three")
+    public String getHeadsailThree() {
+        return headsailThree;
+    }
+
+    public void setHeadsailThree(String headsailThree) {
+        this.headsailThree = headsailThree;
+    }
 }
