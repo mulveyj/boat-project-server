@@ -1,4 +1,7 @@
 node {
+   stage('Slack started') {
+           slackSend channel: "#northcoders-java", message: "Yachts started building"
+   }
    stage('Preparation') {
       git 'https://github.com/mulveyj/boat-project-server.git'
    }
