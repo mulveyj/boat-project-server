@@ -14,7 +14,11 @@ node {
    stage('Docker Build') {
       sh "docker build -t boat-project ."
    }
+   stage('Stop app'){
+      sh "docker stop boat-project || true"
+      sh "docker rm boat-project || true"
+   }
    stage('Docker deploy'){
-      sh "docker run -d -p 8081:8080 boat-project"
+      sh "docker run -d --name boat-project -p 8081:8080 boat-project"
    }
 }
