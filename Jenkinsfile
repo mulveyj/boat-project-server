@@ -11,4 +11,7 @@ node {
    stage('Docker Build') {
       sh "docker build -t boat-project ."
    }
+   stage('Docker deploy'){
+      sh "docker run -d -p 8081:8080 boat-project"
+   }
 }
