@@ -19,6 +19,6 @@ node {
       sh "docker rm boat-project || true"
    }
    stage('Docker deploy'){
-      sh "docker run -d --name boat-project --link mysql:mysql -p 8081:8080 boat-project"
+      sh "docker run -d --name boat-project --link reverent_payne:reverent_payne -p 8081:8080 boat-project"
    }
 }
